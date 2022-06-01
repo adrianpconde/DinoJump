@@ -4,11 +4,11 @@ html, body {
 }
 
 body {
-    background: green;
+    background: white;
 }
 
 canvas {
-    border: 1px solid white;
+    border: 1px solid black;
     margin: 100px auto 50px auto;
     display: block;
 }

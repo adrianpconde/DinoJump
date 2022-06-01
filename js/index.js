@@ -3,12 +3,14 @@ const ctx = canvas.getContext('2d');
 
 const game = new Game(ctx);
 
-document.querySelector('button').addEventListener('click', function(e) {
+const btn = document.getElementById('button')
+
+btn.addEventListener('click', function() {
     if (game.interval) {
         game.stop();
-        this.innerText = 'START';
+        btn.innerText = 'START';
     } else {
         game.start();
-        this.innerText = 'STOP';
+        btn.innerText = 'STOP';
     }
 })
