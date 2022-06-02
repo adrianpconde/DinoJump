@@ -1,19 +1,14 @@
 class Enemy {
     constructor(ctx) {
         this.ctx = ctx;
-        this.x = 50;
-        // this.canvas.width;
-        this.y = 50;
-        this.vx = 0;
-        this.vy = 0;
+        this.x = this.ctx.canvas.width;
+        this.y = 380;
+        this.vx = -2;
 
         this.w = 85;
         this.h = 90;
 
-        this.g = 0;
-
-        this.tick = 0;
-
+        this.tick = 0
         this.img = new Image();
         this.img.frames = 7;
         this.img.framesIndex = 0;
@@ -35,9 +30,7 @@ class Enemy {
     }
 
     move() {
-        this.vy += this.g;
         this.x += this.vx;
-        this.y += this.vy;
         
         if (this.y + this.h >= this.ctx.canvas.height - 30) {
             this.y = this.ctx.canvas.height - 30 - this.h;

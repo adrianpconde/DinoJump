@@ -15,6 +15,7 @@ class Player {
         this.tick = 0;
 
         this.health = 5;
+        this.attacks = [];
 
         this.img = new Image();
         this.img.frames = 5;
@@ -46,6 +47,10 @@ class Player {
         //     this.img.frameIndex = 0;
         //     this.img.src = '/img/DinoSprites - walk.png';
         // };
+
+        this.attacks.forEach((attack) => {
+            attack.draw();
+        });
     }
 
     move() {
@@ -63,7 +68,11 @@ class Player {
         if (this.tick >= 10) {
         this.tick = 0;
         this.animate();
-        };        
+        };
+        
+        this.attacks.forEach((attack) => {
+            attack.move();
+        });
     }
 
     animate() {
@@ -88,12 +97,26 @@ class Player {
         if (key === LEFT) {
             this.vx = -2;
         }
+
+        if (key === SPACE) {
+            this.shoot();
+        }
     }
 
     keyUp(key) {
         if (key === RIGHT || key === LEFT) {
             this.vx = 0;
         }
+    }
+
+    shoot() {
+        const attack = new Attack(
+            this.ctx,
+            this.x + this.w - 10,
+            this.y + 50
+        );
+
+        this.attacks.push(attack);
     }
 
 }
