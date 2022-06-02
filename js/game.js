@@ -5,6 +5,7 @@ class Game {
     
         this.background = new Background(ctx);
         this.player = new Player(ctx);
+        this.enemy = new Enemy(ctx);
 
         this.setListeners();
     }
@@ -29,11 +30,13 @@ class Game {
     draw() {
         this.background.draw();
         this.player.draw();
+        this.enemy.draw();
     }
 
     move() {
         this.background.move();
         this.player.move();
+        this.enemy.move()
     }
 
     setListeners() {

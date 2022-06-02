@@ -1,25 +1,23 @@
-class Player {
+class Enemy {
     constructor(ctx) {
         this.ctx = ctx;
         this.x = 50;
-        this.y = 380;
-
+        // this.canvas.width;
+        this.y = 50;
         this.vx = 0;
         this.vy = 0;
 
         this.w = 85;
         this.h = 90;
 
-        this.g = 0.4;
-        
+        this.g = 0;
+
         this.tick = 0;
 
-        this.health = 5;
-
         this.img = new Image();
-        this.img.frames = 5;
-        this.img.frameIndex = 0;
-        this.img.src = '/img/DinoSprites - walk.png';
+        this.img.frames = 7;
+        this.img.framesIndex = 0;
+        this.img.src = 'img/DinoSprites - velociraptor.png'
     }
 
     draw() {
@@ -34,18 +32,6 @@ class Player {
             this.w,
             this.h
         );
-
-        // if (this.vx < 0) {
-        //     this.img = new Image();
-        //     this.img.frames = 5;
-        //     this.img.frameIndex = 0;
-        //     this.img.src = '/img/DinoSprites - walk-left.png';
-        // } else {
-        //     this.img = new Image();
-        //     this.img.frames = 5;
-        //     this.img.frameIndex = 0;
-        //     this.img.src = '/img/DinoSprites - walk.png';
-        // };
     }
 
     move() {
@@ -73,26 +59,6 @@ class Player {
           if (this.img.frameIndex >= this.img.frames) {
             this.img.frameIndex = 0;
           }
-        }
-    }
-
-    keyDown(key) {
-        if (key === UP && this.vy === 0) {
-            this.vy = -10;
-        }
-
-        if (key === RIGHT) {
-            this.vx = 2;
-        }
-
-        if (key === LEFT) {
-            this.vx = -2;
-        }
-    }
-
-    keyUp(key) {
-        if (key === RIGHT || key === LEFT) {
-            this.vx = 0;
         }
     }
 
