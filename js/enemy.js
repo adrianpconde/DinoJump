@@ -11,9 +11,9 @@ class Enemy {
 
         this.tick = 0
         this.img = new Image();
-        this.img.frames = 7;
+        this.img.frames = 4;
         this.img.frameIndex = 0;
-        this.img.src = 'img/velociraptor.png'
+        this.img.src = '/img/Dino-enemy.png'
     }
 
     draw() {
@@ -21,7 +21,7 @@ class Enemy {
             this.img,
             (this.img.frameIndex * this.img.width) / this.img.frames,
             0,
-            this.img.width / 7,
+            this.img.width / 4,
             this.img.height,
             this.x,
             this.y,
@@ -56,4 +56,10 @@ class Enemy {
         }
     }
 
+    collides(player) {
+        const colX = this.x + this.w > player.x + player.w && this.x + this.w > player.x;
+        const colY = this.y + this.h > player.y && this.y - this.h < player.y + player.h;
+
+        return colX && colY;
+    }
 }

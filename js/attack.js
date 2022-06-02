@@ -12,7 +12,7 @@ class Attack {
 
     draw() {
         this.ctx.beginPath();
-        this.ctx.fillStyle = 'rgb(64, 207, 255)';
+        this.ctx.fillStyle = '#5f5fb7';
         this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         this.ctx.fill();
         this.ctx.closePath();
