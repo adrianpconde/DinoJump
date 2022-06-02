@@ -20,7 +20,7 @@ class Player {
         this.img = new Image();
         this.img.frames = 5;
         this.img.frameIndex = 0;
-        this.img.src = '/img/DinoSprites - walk.png';
+        this.img.src = '/img/Dino-walk.png';
     }
 
     draw() {
@@ -28,7 +28,7 @@ class Player {
             this.img,
             (this.img.frameIndex * this.img.width) / this.img.frames,
             0,
-            this.img.width / this.img.frames,
+            this.img.width / 5,
             this.img.height,
             this.x,
             this.y,
@@ -40,12 +40,12 @@ class Player {
         //     this.img = new Image();
         //     this.img.frames = 5;
         //     this.img.frameIndex = 0;
-        //     this.img.src = '/img/DinoSprites - walk-left.png';
+        //     this.img.src = '/img/Dino-walk-left.png';
         // } else {
         //     this.img = new Image();
         //     this.img.frames = 5;
         //     this.img.frameIndex = 0;
-        //     this.img.src = '/img/DinoSprites - walk.png';
+        //     this.img.src = '/img/Dino-walk.png';
         // };
 
         this.attacks.forEach((attack) => {

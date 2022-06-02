@@ -4,6 +4,7 @@ class Enemy {
         this.x = this.ctx.canvas.width;
         this.y = 380;
         this.vx = -2;
+        this.vy = 0;
 
         this.w = 85;
         this.h = 90;
@@ -11,8 +12,8 @@ class Enemy {
         this.tick = 0
         this.img = new Image();
         this.img.frames = 7;
-        this.img.framesIndex = 0;
-        this.img.src = 'img/DinoSprites - velociraptor.png'
+        this.img.frameIndex = 0;
+        this.img.src = 'img/velociraptor.png'
     }
 
     draw() {
@@ -20,7 +21,7 @@ class Enemy {
             this.img,
             (this.img.frameIndex * this.img.width) / this.img.frames,
             0,
-            this.img.width / this.img.frames,
+            this.img.width / 7,
             this.img.height,
             this.x,
             this.y,
