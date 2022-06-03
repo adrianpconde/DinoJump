@@ -10,10 +10,9 @@ class Player {
         this.w = 85;
         this.h = 90;
 
-        this.g = 0.4;
+        this.g = 0.5;
         
         this.tick = 0;
-
         this.health = 5;
         this.attacks = [];
 
@@ -85,17 +84,25 @@ class Player {
         }
     }
 
+    hit() {
+        this.health -= 1;
+    }
+
+    isAlive() {
+        return this.health > 0;
+    }
+
     keyDown(key) {
         if (key === UP && this.vy === 0) {
-            this.vy = -10;
+            this.vy = -15;
         }
 
         if (key === RIGHT) {
-            this.vx = 2;
+            this.vx = 4;
         }
 
         if (key === LEFT) {
-            this.vx = -2;
+            this.vx = -4;
         }
 
         if (key === SPACE) {

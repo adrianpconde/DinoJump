@@ -1,5 +1,5 @@
 class Enemy {
-    constructor(ctx) {
+    constructor(ctx, player) {
         this.ctx = ctx;
         this.x = this.ctx.canvas.width;
         this.y = 380;
@@ -8,6 +8,7 @@ class Enemy {
 
         this.w = 85;
         this.h = 90;
+        this.player = player;
 
         this.tick = 0
         this.img = new Image();
@@ -56,10 +57,14 @@ class Enemy {
         }
     }
 
-    collides(player) {
-        const colX = this.x + this.w > player.x + player.w && this.x + this.w > player.x;
-        const colY = this.y + this.h > player.y && this.y - this.h < player.y + player.h;
+    isVisible() {
+        return this.x + this.w > 0;
+    }
 
+    collides(player) {
+        const colX = this.x + this.w > this.player.x && this.x < this.player.x + this.player.w;
+        const colY = this.y + this.h > this.player.y && this.y < this.player.y + this.player.h;
+        
         return colX && colY;
     }
 }

@@ -4,17 +4,23 @@ class Attack {
         this.x = x;
         this.y = y;
         this.r = 5;
-        this.g = 0.1;
+        this.g = 0.01;
 
-        this.vx = 15;
+        this.vx = 10;
         this.vy = 0;
     }
 
     draw() {
         this.ctx.beginPath();
-        this.ctx.fillStyle = '#5f5fb7';
+        this.ctx.fillStyle = 'red';
         this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         this.ctx.fill();
+        this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = 'white';
+        this.ctx.stroke();
+    
+
         this.ctx.closePath();
     }
 
