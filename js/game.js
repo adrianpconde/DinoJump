@@ -9,6 +9,7 @@ class Game {
         this.tick = 0;
 
         this.setListeners();
+        this.nextRandom = Math.random() * 100 + 80;
     }
 
     start() {
@@ -17,10 +18,12 @@ class Game {
             this.draw();
             this.move();
             this.checkCollisions();
+            this.checkAttack();
 
             this.tick++;
 
-            if (this.tick > Math.random() * 100 + 250) {
+            if (this.tick > this.nextRandom) {
+                this.nextRandom = Math.random() * 200 + 80;
                 this.tick = 0;
                 this.addEnemy();
             }
@@ -66,6 +69,22 @@ class Game {
         //  if (!this.player.isAlive()) {
         //      console.log('isDEAD')
         //  }
+    }
+
+    checkAttack() {
+        this.enemies.forEach(e => {
+            this.player.bullets.forEach(b => {
+                if (b.collides(e)) {
+                   e.damage() 
+                }
+            })
+        })
+
+        // this.attacks.filter((attack) => {
+        //     if (attack.collides((this.enemies))) {
+        //         this.enemy.damaged()
+        //     }
+        // })
     }
 
     gameOver() {

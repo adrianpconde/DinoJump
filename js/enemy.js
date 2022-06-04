@@ -2,17 +2,19 @@ class Enemy {
     constructor(ctx, player) {
         this.ctx = ctx;
         this.x = this.ctx.canvas.width;
-        this.y = 380;
-        this.vx = -2;
+        this.y = 400;
+        this.vx = -5;
         this.vy = 0;
+        this.g = 0;
 
         this.w = 85;
-        this.h = 90;
+        this.h = 70;
         this.player = player;
+        this.health = 1;
 
         this.tick = 0
         this.img = new Image();
-        this.img.frames = 4;
+        this.img.frames = 6;
         this.img.frameIndex = 0;
         this.img.src = '/img/Dino-enemy.png'
     }
@@ -22,7 +24,7 @@ class Enemy {
             this.img,
             (this.img.frameIndex * this.img.width) / this.img.frames,
             0,
-            this.img.width / 4,
+            this.img.width / 6,
             this.img.height,
             this.x,
             this.y,
@@ -33,11 +35,7 @@ class Enemy {
 
     move() {
         this.x += this.vx;
-        
-        if (this.y + this.h >= this.ctx.canvas.height - 30) {
-            this.y = this.ctx.canvas.height - 30 - this.h;
-            this.vy = 0;
-        };
+        this.y += this.g
         
         this.tick++;
 
@@ -66,5 +64,10 @@ class Enemy {
         const colY = this.y + this.h > this.player.y && this.y < this.player.y + this.player.h;
         
         return colX && colY;
+    }
+
+    damage() {
+        this.health -= 1;
+        this.g = 1
     }
 }

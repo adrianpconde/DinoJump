@@ -7,14 +7,14 @@ class Player {
         this.vx = 0;
         this.vy = 0;
 
-        this.w = 85;
-        this.h = 90;
+        this.w = 70;
+        this.h = 75;
 
         this.g = 0.5;
         
         this.tick = 0;
         this.health = 5;
-        this.attacks = [];
+        this.bullets = [];
 
         this.img = new Image();
         this.img.frames = 5;
@@ -47,7 +47,7 @@ class Player {
         //     this.img.src = '/img/Dino-walk.png';
         // };
 
-        this.attacks.forEach((attack) => {
+        this.bullets.forEach((attack) => {
             attack.draw();
         });
     }
@@ -69,7 +69,7 @@ class Player {
         this.animate();
         };
         
-        this.attacks.forEach((attack) => {
+        this.bullets.forEach((attack) => {
             attack.move();
         });
     }
@@ -123,7 +123,7 @@ class Player {
             this.y + 50
         );
 
-        this.attacks.push(attack);
+        this.bullets.push(attack);
     }
 
 }
