@@ -36,7 +36,7 @@ class Attack {
 
     collides(e) {
         const colX = this.x + this.r > e.x && this.x - this.r < e.x + e.w;
-        const colY = this.y + this.r > e.y && this.y + this.r > e.y + e.h;
+        const colY = this.y + this.r > e.y && this.y + this.r > e.y - e.h;
         
         return colX && colY;
     }
