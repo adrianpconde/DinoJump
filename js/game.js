@@ -79,12 +79,6 @@ class Game {
                 }
             })
         })
-
-        // this.attacks.filter((attack) => {
-        //     if (attack.collides((this.enemies))) {
-        //         this.enemy.damaged()
-        //     }
-        // })
     }
 
     gameOver() {

@@ -10,7 +10,7 @@ class Enemy {
         this.w = 85;
         this.h = 70;
         this.player = player;
-        this.health = 1;
+        // this.health = 1;
 
         this.tick = 0
         this.img = new Image();
@@ -35,7 +35,8 @@ class Enemy {
 
     move() {
         this.x += this.vx;
-        this.y += this.g
+        this.y += this.vy;
+        this.vy += this.g;
         
         this.tick++;
 
@@ -67,7 +68,7 @@ class Enemy {
     }
 
     damage() {
-        this.health -= 1;
+        // this.health -= 1;
         this.g = 1
     }
 }
