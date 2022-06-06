@@ -2,21 +2,28 @@ class Enemy {
     constructor(ctx, player) {
         this.ctx = ctx;
         this.x = this.ctx.canvas.width;
-        this.y = 400;
+        this.y = 398;
         this.vx = -5;
         this.vy = 0;
         this.g = 0;
 
-        this.w = 85;
+        this.w = 75;
         this.h = 70;
         this.player = player;
         this.health = 1;
 
         this.tick = 0
         this.img = new Image();
-        this.img.frames = 6;
         this.img.frameIndex = 0;
-        this.img.src = '/img/Dino-enemy.png'
+
+        if (Math.random() > 0.5) {
+            this.img.frames = 6;
+            this.img.src = '/img/Dino-enemy.png';
+        } else {
+            this.img.frames = 5;
+            this.img.src = '/img/Dino-green.png'
+        }
+
     }
 
     draw() {
@@ -24,7 +31,7 @@ class Enemy {
             this.img,
             (this.img.frameIndex * this.img.width) / this.img.frames,
             0,
-            this.img.width / 6,
+            this.img.width / this.img.frames,
             this.img.height,
             this.x,
             this.y,
@@ -61,14 +68,15 @@ class Enemy {
     }
 
     collides(player) {
-        const colX = this.x + this.w > this.player.x && this.x < this.player.x + this.player.w;
-        const colY = this.y + this.h > this.player.y && this.y < this.player.y + this.player.h;
+        const colX = this.x + this.w - 15 > this.player.x && this.x + 15 < this.player.x + this.player.w;
+        const colY = this.y + this.h + 10 > this.player.y && this.y -10 < this.player.y + this.player.h;
         
         return colX && colY;
     }
 
     damage() {
         this.health -= 1;
-        this.g = 1
+        this.vx = 0;
+        this.g = 1;
     }
 }

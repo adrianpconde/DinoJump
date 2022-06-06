@@ -62,20 +62,24 @@ class Game {
     checkCollisions() {
         this.enemies.filter((enemy) => {
             if (enemy.collides(this.player)) {
-                console.log('hey')
-                // this.player.hit()
+                this.player.hit();
+                return false;
             }
-        })
-        //  if (!this.player.isAlive()) {
-        //      console.log('isDEAD')
-        //  }
+
+            return true;
+        });
+        
+        if (!this.player.isAlive()) {
+            this.gameOver()
+        }
     }
 
     checkAttack() {
         this.enemies.forEach(e => {
             this.player.bullets.forEach(b => {
                 if (b.collides(e)) {
-                   e.damage() 
+                   e.damage();
+                   
                 }
             })
         })
@@ -90,6 +94,7 @@ class Game {
         // this.img.src = '/img/Dino-dead.png';
 
         this.ctx.font = "60px Courier New";
+        this.ctx.fillStyle = "white";
         this.ctx.fillText(
             'GAME OVER', 
             this.ctx.canvas.width * 0.3,

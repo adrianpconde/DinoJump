@@ -9,7 +9,7 @@ class Background {
         this.img = new Image();
         this.img.src = "img/bg.png";
         
-        this.vx = -0.5;    
+        this.vx = -1;    
     }
 
     draw() {

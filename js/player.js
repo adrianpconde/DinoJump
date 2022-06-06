@@ -13,7 +13,7 @@ class Player {
         this.g = 0.5;
         
         this.tick = 0;
-        this.health = 5;
+        this.health = new Health(ctx);
         this.bullets = [];
 
         this.img = new Image();
@@ -50,6 +50,8 @@ class Player {
         this.bullets.forEach((attack) => {
             attack.draw();
         });
+
+        this.health.draw();
     }
 
     move() {
@@ -72,6 +74,8 @@ class Player {
         this.bullets.forEach((attack) => {
             attack.move();
         });
+
+        this.health.move();
     }
 
     animate() {
@@ -85,11 +89,11 @@ class Player {
     }
 
     hit() {
-        this.health -= 1;
+        this.health.dec();
     }
 
     isAlive() {
-        return this.health > 0;
+        return this.health.total > 0;
     }
 
     keyDown(key) {

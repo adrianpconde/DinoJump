@@ -4,7 +4,7 @@ class Attack {
         this.x = x;
         this.y = y;
         this.r = 5;
-        this.g = 0.01;
+        this.g = 0.1;
         
         this.vx = 10;
         this.vy = 0;
@@ -17,7 +17,7 @@ class Attack {
         this.ctx.fill();
         this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         this.ctx.lineWidth = 2;
-        this.ctx.strokeStyle = 'white';
+        this.ctx.strokeStyle = 'black';
         this.ctx.stroke();
     
 
@@ -36,7 +36,7 @@ class Attack {
 
     collides(e) {
         const colX = this.x + this.r > e.x && this.x - this.r < e.x + e.w;
-        const colY = this.y + this.r > e.y && this.y + this.r > e.y - e.h;
+        const colY = this.y + this.r > e.y && this.y < e.y + e.h;
         
         return colX && colY;
     }
