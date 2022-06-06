@@ -3,7 +3,7 @@ class Enemy {
         this.ctx = ctx;
         this.x = this.ctx.canvas.width;
         this.y = 398;
-        this.vx = -5;
+        this.vx = -7.5;
         this.vy = 0;
         this.g = 0;
 

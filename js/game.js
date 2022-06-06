@@ -8,6 +8,8 @@ class Game {
         this.enemies =[];
         this.tick = 0;
 
+        this.score = 0;
+
         this.setListeners();
         this.nextRandom = Math.random() * 100 + 80;
     }
@@ -23,7 +25,7 @@ class Game {
             this.tick++;
 
             if (this.tick > this.nextRandom) {
-                this.nextRandom = Math.random() * 200 + 80;
+                this.nextRandom = Math.random() * 200 + 20;
                 this.tick = 0;
                 this.addEnemy();
             }
@@ -79,6 +81,7 @@ class Game {
             this.player.bullets.forEach(b => {
                 if (b.collides(e)) {
                    e.damage();
+                   this.score += 1;
                    
                 }
             })
