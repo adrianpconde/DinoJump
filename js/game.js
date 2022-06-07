@@ -78,23 +78,49 @@ class Game {
 
     checkAttack() {
         this.enemies.forEach(e => {
-            this.player.bullets.forEach(b => {
+            this.player.bullets = this.player.bullets.filter(b => {
                 if (b.collides(e)) {
                    e.damage();
-                   this.score += 1;
-                   
+                   this.score++;
+                   console.log(this.score)
+                   return false;
+                } else {
+                    return true;
                 }
             })
         })
     }
 
+    finalBoss() {
+        if (this.score >= 15) {
+            const finalBoss = new Boss(this.ctx, this.player);
+            this.enemies.push(finalBoss);
+        }
+    }
+
+    youWin() {
+        if (this.Boss.isDead()) {
+            this.stop();
+            this.ctx.font = "60px Courier New";
+            this.ctx.fillStyle = "white";
+            this.ctx.fillText(
+            "YOU'RE THE WINNER!!", 
+            this.ctx.canvas.width * 0.3,
+            this.ctx.canvas.height / 2,
+            );
+
+            this.enemies = [];
+            this.player = new Player(ctx);
+        }
+    }
+
     gameOver() {
         this.stop();
 
-        // this.img = new Image();
-        // this.img.frames = 3;
-        // this.img.frameIndex = 0;
-        // this.img.src = '/img/Dino-dead.png';
+        // this.player.img = new Image();
+        // this.player.img.frames = 3;
+        // this.player.img.frameIndex = 0;
+        // this.player.img.src = '/img/Dino-dead.png';
 
         this.ctx.font = "60px Courier New";
         this.ctx.fillStyle = "white";

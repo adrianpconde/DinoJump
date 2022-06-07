@@ -9,7 +9,6 @@ class Enemy {
 
         this.w = 75;
         this.h = 70;
-        this.player = player;
         this.health = 1;
 
         this.tick = 0
@@ -68,8 +67,8 @@ class Enemy {
     }
 
     collides(player) {
-        const colX = this.x + this.w - 15 > this.player.x && this.x + 15 < this.player.x + this.player.w;
-        const colY = this.y + this.h + 10 > this.player.y && this.y -10 < this.player.y + this.player.h;
+        const colX = this.x + this.w - 15 > player.x && this.x + 15 < player.x + player.w;
+        const colY = this.y + this.h + 10 > player.y && this.y -10 < player.y + player.h;
         
         return colX && colY;
     }
@@ -78,5 +77,29 @@ class Enemy {
         this.health -= 1;
         this.vx = 0;
         this.g = 1;
+    }
+}
+
+class Boss extends Enemy {
+    constructor(ctx) {
+        super(ctx, x, vy, g, tick);
+        this.y = 340;
+        this.vx = -5;
+        this.w = 75;
+        this.h = 70;
+        this.health = 15;
+        this.img = new Image();
+        this.img.frameIndex = 0;
+        this.img.frames = 4;
+        this.img.src = '/img/Dino-FinalBoss.png'
+    }
+
+    // , x, y, vx, vy, g, w, h, health, tick, img
+
+    isDead() {
+        if (this.health <= 0) {
+            this.vx = 0;
+            this.g = 1.5;
+        }
     }
 }

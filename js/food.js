@@ -1,5 +1,5 @@
 class Food {
-    constructor(ctx) {
+    constructor(ctx, player) {
         this.ctx = ctx;
         this.x = Math.random() * this.ctx.canvas.width;
         this.y = 0;
@@ -38,9 +38,9 @@ class Food {
         return this.y + this.h < this.ctx.canvas.height;
     }
     
-    collides(p) {
-        const colX = this.x + this.w < p.x + p.w && this.x + this.w > p.x;
-        const colY = this.y + this.h > p.y && this.y - this.h < p.y + p.h;
+    collides(player) {
+        const colX = this.x + this.w < player.x + player.w && this.x + this.w > player.x;
+        const colY = this.y + this.h > player.y && this.y - this.h < player.y + player.h;
 
     return colX && colY;
     }

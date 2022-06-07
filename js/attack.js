@@ -4,7 +4,7 @@ class Attack {
         this.x = x;
         this.y = y;
         this.r = 5;
-        this.g = 0.1;
+        this.g = 0;
         
         this.vx = 10;
         this.vy = 0;
