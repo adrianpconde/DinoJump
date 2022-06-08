@@ -20,7 +20,7 @@ class Enemy {
             this.img.src = '/img/Dino-enemy.png';
         } else {
             this.img.frames = 5;
-            this.img.src = '/img/Dino-green.png'
+            this.img.src = '/img/Dino-green.png';
         }
 
     }
@@ -81,23 +81,28 @@ class Enemy {
 }
 
 class Boss extends Enemy {
-    constructor(ctx) {
-        super(ctx, x, vy, g, tick);
-        this.y = 340;
-        this.vx = -5;
-        this.w = 75;
-        this.h = 70;
+    constructor(ctx, x, y, vx, vy, g, w, h, health, img) {
+        super(ctx, x, vy, g);
+        
+        this.y = 350
+        
+        this.vx = -5.5;
+        
+        this.w = 110;
+        this.h = 120;
+        
         this.health = 15;
+        
+        this.tick = 0
+        
         this.img = new Image();
-        this.img.frameIndex = 0;
         this.img.frames = 4;
+        this.img.frameIndex = 0;
         this.img.src = '/img/Dino-FinalBoss.png'
     }
 
-    // , x, y, vx, vy, g, w, h, health, tick, img
-
     isDead() {
-        if (this.health <= 0) {
+        if (this.health < 0) {
             this.vx = 0;
             this.g = 1.5;
         }

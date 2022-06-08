@@ -8,11 +8,11 @@ const btn = document.getElementById('button');
 btn.addEventListener('click', function() {
     if (game.interval) {
         game.stop();
-        btn.innerText = 'START';
+        btn.innerText = "LET'S DO IT!";
         btn.blur()
     } else {
         game.start();
-        btn.innerText = 'STOP';
+        btn.innerText = "PAUSE";
         btn.blur()
     }
 })

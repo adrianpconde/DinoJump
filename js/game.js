@@ -5,7 +5,7 @@ class Game {
     
         this.background = new Background(ctx);
         this.player = new Player(ctx);
-        this.enemies =[];
+        this.enemies = [];
         this.tick = 0;
 
         this.score = 0;
@@ -59,6 +59,12 @@ class Game {
         const enemy = new Enemy(this.ctx, this.player);
     
         this.enemies.push(enemy);
+
+        if (this.score >= 5) {
+            this.enemies = [];
+            const finalBoss = new Boss(this.ctx, this.player);
+            this.enemies.push(finalBoss);
+        }
     }
 
     checkCollisions() {
@@ -87,40 +93,32 @@ class Game {
                 } else {
                     return true;
                 }
+                })
             })
-        })
-    }
-
-    finalBoss() {
-        if (this.score >= 15) {
-            const finalBoss = new Boss(this.ctx, this.player);
-            this.enemies.push(finalBoss);
-        }
     }
 
     youWin() {
-        if (this.Boss.isDead()) {
-            this.stop();
-            this.ctx.font = "60px Courier New";
-            this.ctx.fillStyle = "white";
-            this.ctx.fillText(
-            "YOU'RE THE WINNER!!", 
-            this.ctx.canvas.width * 0.3,
-            this.ctx.canvas.height / 2,
-            );
+        this.stop();
+        this.ctx.font = "60px Courier New";
+        this.ctx.fillStyle = "white";
+        this.ctx.fillText(
+        "YOU'RE THE WINNER!!", 
+        this.ctx.canvas.width * 0.3,
+        this.ctx.canvas.height / 2,
+        );
 
-            this.enemies = [];
-            this.player = new Player(ctx);
-        }
+        this.enemies = [];
+        this.player = new Player(ctx);
+        
     }
 
     gameOver() {
         this.stop();
 
-        // this.player.img = new Image();
-        // this.player.img.frames = 3;
-        // this.player.img.frameIndex = 0;
-        // this.player.img.src = '/img/Dino-dead.png';
+        this.player.img = new Image();
+        this.player.img.frames = 3;
+        this.player.img.frameIndex = 0;
+        this.player.img.src = '/img/Dino-dead.png';
 
         this.ctx.font = "60px Courier New";
         this.ctx.fillStyle = "white";
@@ -128,7 +126,7 @@ class Game {
             'GAME OVER', 
             this.ctx.canvas.width * 0.3,
             this.ctx.canvas.height / 2,
-            );
+        );
 
         this.enemies = [];
         this.player = new Player(ctx);
