@@ -75,8 +75,11 @@ class Enemy {
 
     damage() {
         this.health -= 1;
-        this.vx = 0;
-        this.g = 1;
+
+        if (this.health === 0) {
+            this.vx = 0;
+            this.g = 1;
+        }  
     }
 }
 
@@ -86,25 +89,19 @@ class Boss extends Enemy {
         
         this.y = 350
         
-        this.vx = -5.5;
+        this.vx = -3.5;
         
         this.w = 110;
         this.h = 120;
         
-        this.health = 15;
+        this.health = 5;
         
         this.tick = 0
         
         this.img = new Image();
-        this.img.frames = 4;
+        this.img.frames = 7;
         this.img.frameIndex = 0;
-        this.img.src = '/img/Dino-FinalBoss.png'
+        this.img.src = '/img/Dino-final-boss.png'
     }
 
-    isDead() {
-        if (this.health < 0) {
-            this.vx = 0;
-            this.g = 1.5;
-        }
-    }
 }

@@ -9,7 +9,7 @@ btn.addEventListener('click', function() {
     if (game.interval) {
         game.stop();
         btn.innerText = "LET'S DO IT!";
-        btn.blur()
+        btn.blur();
     } else {
         game.start();
         btn.innerText = "PAUSE";

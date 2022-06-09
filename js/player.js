@@ -20,18 +20,6 @@ class Player {
         this.img.frames = 5;
         this.img.frameIndex = 0;
         this.img.src = '/img/Dino-walk.png';
-
-        // if (this.vx < 0) {
-        //     this.img = new Image();
-        //     this.img.frames = 5;
-        //     this.img.frameIndex = 0;
-        //     this.img.src = '/img/Dino-walk-left.png';
-        // }  else {
-        //     this.img = new Image();
-        //     this.img.frames = 5;
-        //     this.img.frameIndex = 0;
-        //     this.img.src = '/img/Dino-walk.png';
-        // };
     }
 
     draw() {
@@ -90,6 +78,10 @@ class Player {
 
     hit() {
         this.health.dec();
+    }
+
+    fed() {
+        this.health.grow();
     }
 
     isAlive() {

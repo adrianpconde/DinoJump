@@ -8,6 +8,8 @@ class Game {
         this.enemies = [];
         this.tick = 0;
 
+        this.finalBoss = new Boss(this.ctx, this.player);
+        this.items = [];
         this.score = 0;
 
         this.setListeners();
@@ -21,11 +23,12 @@ class Game {
             this.move();
             this.checkCollisions();
             this.checkAttack();
+            this.drawScore();
 
             this.tick++;
 
             if (this.tick > this.nextRandom) {
-                this.nextRandom = Math.random() * 200 + 20;
+                this.nextRandom = Math.random() * 200 + 10;
                 this.tick = 0;
                 this.addEnemy();
             }
@@ -47,12 +50,14 @@ class Game {
         this.background.draw();
         this.player.draw();
         this.enemies.forEach((e) => e.draw());
+        this.items.forEach((i) => i.draw());
     }
 
     move() {
         this.background.move();
         this.player.move();
         this.enemies.forEach((e) => e.move());
+        this.items.forEach((i) => i.move());
     }
 
     addEnemy() {
@@ -60,11 +65,16 @@ class Game {
     
         this.enemies.push(enemy);
 
-        if (this.score >= 5) {
+        if (this.score >= 35) {
             this.enemies = [];
-            const finalBoss = new Boss(this.ctx, this.player);
-            this.enemies.push(finalBoss);
+            this.enemies.push(this.finalBoss);
         }
+    }
+
+    addFood() {
+        const food = new Food(this.ctx, this.player);
+        
+        this.items.push(food);
     }
 
     checkCollisions() {
@@ -78,7 +88,7 @@ class Game {
         });
         
         if (!this.player.isAlive()) {
-            this.gameOver()
+            this.gameOver();
         }
     }
 
@@ -88,37 +98,55 @@ class Game {
                 if (b.collides(e)) {
                    e.damage();
                    this.score++;
-                   console.log(this.score)
                    return false;
                 } else {
                     return true;
                 }
-                })
             })
+        });
+
+        if (this.finalBoss.health === 0) {
+            setTimeout(() => this.winner(), 1000);
+        };
     }
 
-    youWin() {
+    drawScore() {
+        ctx.font = "26px Orbitron";
+        ctx.fillStyle = "white";
+        ctx.fillText("SCORE: "+ this.score, 750, 25);
+    }
+
+    moreHealth() {
+        this.items.filter(item => {
+            if (item.collides(this.player)) {
+                this.player.fed();
+                console.log('food')
+                return false;
+            }
+
+            return true;
+
+        });
+
+    }
+
+    winner() {
         this.stop();
+
         this.ctx.font = "60px Courier New";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(
-        "YOU'RE THE WINNER!!", 
-        this.ctx.canvas.width * 0.3,
-        this.ctx.canvas.height / 2,
+            "YOU WIN!!!", 
+            this.ctx.canvas.width * 0.3,
+            this.ctx.canvas.height / 2,
         );
 
         this.enemies = [];
         this.player = new Player(ctx);
-        
     }
 
     gameOver() {
         this.stop();
-
-        this.player.img = new Image();
-        this.player.img.frames = 3;
-        this.player.img.frameIndex = 0;
-        this.player.img.src = '/img/Dino-dead.png';
 
         this.ctx.font = "60px Courier New";
         this.ctx.fillStyle = "white";
