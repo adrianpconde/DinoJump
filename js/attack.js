@@ -6,7 +6,7 @@ class Attack {
         this.r = 5;
         this.g = 0;
         
-        this.vx = 10;
+        this.vx = 6;
         this.vy = 0;
     }
 

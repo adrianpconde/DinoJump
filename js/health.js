@@ -21,8 +21,4 @@ class Health {
     dec() {
         this.total -= 0.02;
     }
-
-    grow() {
-        this.total += 0.3;
-    }
 }

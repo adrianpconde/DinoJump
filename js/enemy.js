@@ -2,26 +2,26 @@ class Enemy {
     constructor(ctx, player) {
         this.ctx = ctx;
         this.x = this.ctx.canvas.width;
-        this.y = 398;
-        this.vx = -7.5;
+        this.y = null;
+        this.vx = -9;
         this.vy = 0;
         this.g = 0;
 
-        this.w = 75;
-        this.h = 70;
+        this.w = null;
+        this.h = null;
         this.health = 1;
-
+        this.points = null;
         this.tick = 0
         this.img = new Image();
         this.img.frameIndex = 0;
 
-        if (Math.random() > 0.5) {
-            this.img.frames = 6;
-            this.img.src = '/img/Dino-enemy.png';
-        } else {
-            this.img.frames = 5;
-            this.img.src = '/img/Dino-green.png';
-        }
+        // if (Math.random() > 0.5) {
+        //     this.img.frames = 6;
+        //     this.img.src = '/img/Dino-enemy.png';
+        // } else {
+        //     this.img.frames = 5;
+        //     this.img.src = '/img/Dino-green.png';
+        // }
 
     }
 
@@ -83,20 +83,49 @@ class Enemy {
     }
 }
 
+class Velociraptor extends Enemy {
+    constructor(ctx, x, y, vx, vy, g, w, h, health, tick, points, img) {
+        super(ctx, x, vx, vy, g, health, tick);
+        this.y = 390;
+        this.w = 85;
+        this.h = 80;
+        this.points = 3;
+        this.img = new Image();
+        this.img.frames = 6;
+        this.img.frameIndex = 0;
+        this.img.src = '/img/Dino-enemy.png'
+    }
+}
+
+class Rex extends Enemy {
+    constructor(ctx, x, y, vx, vy, g, w, h, health, points, img) {
+        super(ctx, x, vy, g, health);
+        this.y = 380;
+        this.w = 80;
+        this.h = 90;
+        this.vx = -8.5;
+        this.points = 2;
+        this.img = new Image();
+        this.img.frames = 5;
+        this.img.frameIndex = 0;
+        this.img.src = '/img/Dino-green.png'
+    }
+}
+
 class Boss extends Enemy {
-    constructor(ctx, x, y, vx, vy, g, w, h, health, img) {
-        super(ctx, x, vy, g);
+    constructor(ctx, x, y, vx, vy, g, w, h, health, tick, points, img) {
+        super(ctx, x, vy, g, tick);
         
-        this.y = 350
+        this.y = 340
         
-        this.vx = -3.5;
+        this.vx = -5.5;
         
-        this.w = 110;
-        this.h = 120;
+        this.w = 120;
+        this.h = 130;
         
-        this.health = 5;
+        this.health = 15;
         
-        this.tick = 0
+        this.points = 50;
         
         this.img = new Image();
         this.img.frames = 7;

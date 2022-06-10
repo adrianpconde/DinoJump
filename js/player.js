@@ -90,7 +90,7 @@ class Player {
 
     keyDown(key) {
         if (key === UP && this.vy === 0) {
-            this.vy = -15;
+            this.vy = -12;
         }
 
         if (key === RIGHT) {

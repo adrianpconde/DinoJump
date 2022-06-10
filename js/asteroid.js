@@ -1,17 +1,20 @@
-class Food {
+class Asteroid {
     constructor(ctx, player) {
         this.ctx = ctx;
-        this.x = Math.random() * this.ctx.canvas.width;
+        this.x = (Math.random() * this.ctx.canvas.width) - this.h;
         this.y = 0;
         this.w = 60;
         this.h = 60;
 
-        this.vx = 0;
-        this.vy = 0;
-        this.ay = 0.1;
+        this.vx = -1;
+        this.vy = 1;
+
+        this.tick = 0
 
         this.img = new Image();
-        this.img.src = '/img/meat.png'
+        this.img.frames = 1;
+        this.img.frameIndex = 0;
+        this.img.src = '/img/asteroid.png'
     }
 
     draw() {
@@ -29,13 +32,12 @@ class Food {
     }
 
     move() {
-        this.vy += this.ay;
         this.y += this.vy;
         this.x += this.vx;
     }
 
     isVisible() {
-        return this.y + this.h < this.ctx.canvas.height;
+        return this.y + this.h < this.ctx.canvas.height && this.x + this.w < this.ctx.canvas.width;
     }
     
     collides(player) {
