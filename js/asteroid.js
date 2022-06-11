@@ -1,13 +1,13 @@
 class Asteroid {
     constructor(ctx, player) {
         this.ctx = ctx;
-        this.x = (Math.random() * this.ctx.canvas.width) - this.h;
+        this.x = (Math.random() * this.ctx.canvas.width);
         this.y = 0;
-        this.w = 60;
-        this.h = 60;
+        this.w = 100;
+        this.h = 100;
 
-        this.vx = -1;
-        this.vy = 1;
+        this.vx = -6;
+        this.vy = 5;
 
         this.tick = 0
 
