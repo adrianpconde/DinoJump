@@ -7,11 +7,10 @@ html, body {
 }
 
 body {
-    background: white;
+    background: rgb(120, 138, 189);
 }
 
 canvas {
-    border: 1px solid black;
     margin: 100px auto 50px auto;
     display: block;
 }
@@ -24,4 +23,27 @@ button {
     padding: 10px 15px;
     font-weight: bold;
     letter-spacing: 2px;
+}
+
+.logo {
+    display: flex;
+    padding-top: 50px;
+    height: 200px;
+    padding-bottom: 15px;
+    margin: auto;
+}
+
+h1 {
+    color: white;
+}
+
+.cover {
+    width: 900px;
+    height: 500px;
+    display: block;
+    margin: 100px auto 50px auto;
+}
+
+.hidden {
+    display: none;
 }
