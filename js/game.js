@@ -131,7 +131,7 @@ class Game {
     winner() {
         this.stop();
 
-        this.ctx.font = "60px Courier New";
+        this.ctx.font = "58px Orbitron";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(
             "YOU WIN!!!", 
@@ -146,7 +146,7 @@ class Game {
     gameOver() {
         this.stop();
 
-        this.ctx.font = "60px Courier New";
+        this.ctx.font = "58px Orbitron";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(
             'GAME OVER', 

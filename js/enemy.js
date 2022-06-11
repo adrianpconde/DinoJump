@@ -14,15 +14,6 @@ class Enemy {
         this.tick = 0
         this.img = new Image();
         this.img.frameIndex = 0;
-
-        // if (Math.random() > 0.5) {
-        //     this.img.frames = 6;
-        //     this.img.src = '/img/Dino-enemy.png';
-        // } else {
-        //     this.img.frames = 5;
-        //     this.img.src = '/img/Dino-green.png';
-        // }
-
     }
 
     draw() {
@@ -118,7 +109,7 @@ class Boss extends Enemy {
         
         this.y = 340
         
-        this.vx = -5.5;
+        this.vx = -4.5;
         
         this.w = 120;
         this.h = 130;
