@@ -18,7 +18,7 @@ class Asteroid {
 
     this.asteroidAudio = new Audio("/audio/asteroid.wav");
     this.asteroidAudio.play();
-    this.asteroidAudio.volume = 0.3;
+    this.asteroidAudio.volume = 0.1;
   }
 
   draw() {

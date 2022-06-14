@@ -73,7 +73,7 @@ class Enemy {
 
     if (this.health === 0) {
       this.enemyDeadAudio.play();
-      this.enemyDeadAudio.volume = 0.6;
+      this.enemyDeadAudio.volume = 0.5;
       this.vx = 0;
       this.g = 1;
     }
@@ -143,6 +143,7 @@ class Boss extends Enemy {
     this.img.frameIndex = 0;
     this.img.src = "/img/Dino-final-boss.png";
 
-    this.enemyDeadAudio = new Audio("/audio/finalboss-dead.wav");
+    this.enemyDeadAudio = new Audio("/audio/boss-dead.wav")
+    this.enemyDeadAudio.volumen = 0.1;
   }
 }

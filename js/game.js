@@ -13,7 +13,7 @@ class Game {
 
     this.audio = new Audio("/audio/game-music.mp3");
     this.gameOverAudio = new Audio("/audio/game-over.wav");
-    this.winnerAudio = new Audio("/audio/winner-song.mp3");
+    this.winnerAudio = new Audio("/audio/winner.mp3");
 
     this.setListeners();
     this.nextRandom = Math.random() * 300 + 20;
@@ -39,7 +39,7 @@ class Game {
     }, 1000 / 60);
 
     this.audio.play();
-    this.audio.volume = 0.2;
+    this.audio.volume = 0.1;
   }
 
   stop() {
@@ -79,7 +79,7 @@ class Game {
       this.enemies.push(rex);
     }
 
-    if (this.score >= 50) {
+    if (this.score >= 80) {
       this.enemies = [];
       this.enemies.push(this.finalBoss);
     }
@@ -139,7 +139,7 @@ class Game {
 
   winner() {
     this.winnerAudio.play();
-    this.winnerAudio.volume = 0.8;
+    this.winnerAudio.volume = 0.5;
     this.stop();
 
     this.ctx.font = "58px Orbitron";
@@ -156,7 +156,7 @@ class Game {
 
   gameOver() {
     this.gameOverAudio.play();
-    this.gameOverAudio.volume = 0.6;
+    this.gameOverAudio.volume = 0.5;
     this.stop();
 
     this.ctx.font = "58px Orbitron";

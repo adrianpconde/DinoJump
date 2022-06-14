@@ -114,7 +114,7 @@ class Player {
 
   shoot() {
     this.attackAudio.play();
-    this.attackAudio.volume = 0.4;
+    this.attackAudio.volume = 0.5;
 
     const attack = new Attack(this.ctx, this.x + this.w - 10, this.y + 50);
 
