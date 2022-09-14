@@ -13,6 +13,7 @@ Blue is the last dinosaur of its kind, a special specimen, the only one capable 
 - **Shoot** with the **Space Key**.
 
 <b>Let's play!</b> 
+<br />
 https://adrianpconde.github.io/DinoJump/
 
 
