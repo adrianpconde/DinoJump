@@ -19,10 +19,10 @@ class Player {
     this.img = new Image();
     this.img.frames = 5;
     this.img.frameIndex = 0;
-    this.img.src = "assets/img/Dino-walk.png";
+    this.img.src = "/assets/img/Dino-walk.png";
 
-    this.jumpAudio = new Audio("assets/audio/jump.wav");
-    this.attackAudio = new Audio("assets/audio/attack.wav");
+    this.jumpAudio = new Audio("/assets/audio/jump.wav");
+    this.attackAudio = new Audio("/assets/audio/attack.wav");
   }
 
   draw() {
