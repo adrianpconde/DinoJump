@@ -11,9 +11,9 @@ class Game {
     this.finalBoss = new Boss(this.ctx, this.player);
     this.score = 0;
 
-    this.audio = new Audio("/assets/audio/game-music.mp3");
-    this.gameOverAudio = new Audio("/assets/audio/game-over.wav");
-    this.winnerAudio = new Audio("/assets/audio/winner.mp3");
+    this.audio = new Audio("assets/audio/game-music.mp3");
+    this.gameOverAudio = new Audio("assets/audio/game-over.wav");
+    this.winnerAudio = new Audio("assets/audio/winner.mp3");
 
     this.setListeners();
     this.nextRandom = Math.random() * 300 + 20;

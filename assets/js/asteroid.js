@@ -14,9 +14,9 @@ class Asteroid {
     this.img = new Image();
     this.img.frames = 1;
     this.img.frameIndex = 0;
-    this.img.src = "assets//img/asteroid.png";
+    this.img.src = "assets/img/asteroid.png";
 
-    this.asteroidAudio = new Audio("/assets/audio/asteroid.wav");
+    this.asteroidAudio = new Audio("assets/audio/asteroid.wav");
     this.asteroidAudio.play();
     this.asteroidAudio.volume = 0.1;
   }

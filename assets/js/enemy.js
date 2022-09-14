@@ -15,7 +15,7 @@ class Enemy {
     this.img = new Image();
     this.img.frameIndex = 0;
 
-    this.enemyDeadAudio = new Audio("/assets/audio/enemy-dead.wav");
+    this.enemyDeadAudio = new Audio("assets/audio/enemy-dead.wav");
   }
 
   draw() {
@@ -90,7 +90,7 @@ class Velociraptor extends Enemy {
     this.img = new Image();
     this.img.frames = 6;
     this.img.frameIndex = 0;
-    this.img.src = "/assets/img/Dino-enemy.png";
+    this.img.src = "assets/img/Dino-enemy.png";
   }
 }
 
@@ -105,7 +105,7 @@ class Rex extends Enemy {
     this.img = new Image();
     this.img.frames = 5;
     this.img.frameIndex = 0;
-    this.img.src = "/assets/img/Dino-green.png";
+    this.img.src = "assets/img/Dino-green.png";
   }
 }
 
@@ -141,9 +141,9 @@ class Boss extends Enemy {
     this.img = new Image();
     this.img.frames = 7;
     this.img.frameIndex = 0;
-    this.img.src = "/assets/img/Dino-final-boss.png";
+    this.img.src = "assets/img/Dino-final-boss.png";
 
-    this.enemyDeadAudio = new Audio("/assets/audio/boss-dead.wav")
+    this.enemyDeadAudio = new Audio("assets/audio/boss-dead.wav")
     this.enemyDeadAudio.volumen = 0.1;
   }
 }
