@@ -12,7 +12,8 @@ Blue is the last dinosaur of its kind, a special specimen, the only one capable 
 - **Jump** with the **Arrow Key Up**.
 - **Shoot** with the **Space Key**.
 
-<b>Let's play!</b> https://adrianpconde.github.io/DinoJump/
+<b>Let's play!</b> 
+https://adrianpconde.github.io/DinoJump/
 
 
 The video game is platform style, with slight elements of the action genre. This little online game is part of the first project developed by me within the Part Time Web Development Bootcamp by Ironhack.
