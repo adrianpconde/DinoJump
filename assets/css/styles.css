@@ -11,7 +11,7 @@ body {
 }
 
 canvas {
-    margin: 100px auto 50px auto;
+    margin: 50px auto 20px auto;
     display: block;
 }
 
@@ -42,7 +42,7 @@ h1 {
     width: 900px;
     height: 500px;
     display: block;
-    margin: 100px auto 50px auto;
+    margin: 50px auto 20px auto;
 }
 
 .hidden {
