@@ -28,7 +28,8 @@ button {
 .logo {
     display: flex;
     padding-top: 50px;
-    height: 200px;
+    height: 100px;
+    width: 100px;
     padding-bottom: 15px;
     margin: auto;
 }
